@@ -22,8 +22,16 @@ USER=root
 PASSWORD=secret
 ```
 
+Docker - Start Container
+---
+```
+docker run --name mysql -p 3306:3306 -d -e MYSQL_ROOT_PASSWORD=secret mysql
+```
+
 Import Database Schema
 ---
 ```
+docker cp path/to/schema.sql mysql:/path/to/destination
+docker exec -it mysql bash
 mysql -u root -p tester < /path/to/schema.sql
 ```
